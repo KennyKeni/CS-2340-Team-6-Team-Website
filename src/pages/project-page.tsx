@@ -62,6 +62,15 @@ export function ProjectPage() {
                 GitHub Repository
                 <ArrowUpRight className="size-4" />
               </a>
+              {project.liveSite && (
+                <a
+                  href={project.liveSite}
+                  className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-medium text-primary transition hover:bg-primary/20"
+                >
+                  Project Website
+                  <ArrowUpRight className="size-4" />
+                </a>
+              )}
             </div>
           </div>
         </div>

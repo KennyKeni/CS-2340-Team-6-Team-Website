@@ -24,8 +24,7 @@ export function AdditionalProjects({ projects }: AdditionalProjectsProps) {
           </h2>
         </div>
         <p className="max-w-md text-sm text-muted-foreground">
-          These initiatives are in various stages of research and development.
-          Tap into a project to follow along with milestones and demos.
+          Explore the initiatives we&apos;re incubating next and track new milestones as they roll out.
         </p>
       </div>
 

@@ -23,7 +23,7 @@ export function TeamSection({ members }: TeamSectionProps) {
             </h2>
           </div>
           <p className="max-w-md text-sm text-muted-foreground">
-            Use this roster to see who owns each slice of the build and reach out to the right teammate when questions come up during reviews or critiques.
+            Meet the teammates behind each sprint deliverable, plus the Georgia Tech emails to reach them with questions.
           </p>
         </div>
 

@@ -7,6 +7,7 @@ export type Project = {
   highlights: string[]
   techStack: string[]
   repoLink: string
+  liveSite?: string
   videoEmbed?: string
   status?: string
   userStories?: string[]
@@ -51,6 +52,7 @@ export const projects: Project[] = [
     ],
     techStack: ["Django", "SQLite", "Google Maps API"],
     repoLink: "https://github.com/KennyKeni/CS-2340-Team-6-Project",
+    liveSite: "https://cs2340team6.pythonanywhere.com/",
     videoEmbed: "",
     userStories: [
       "Job seekers can create detailed profiles with skills, experience, and links.",
@@ -128,6 +130,7 @@ export const projects: Project[] = [
     ],
     techStack: ["Django", "SQLite", "Google Maps API"],
     repoLink: "#",
+    liveSite: "",
     status: "Ideation · Backlog grooming",
     overview: {
       problem:
