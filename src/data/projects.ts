@@ -23,6 +23,8 @@ export type Project = {
     priorities: string[]
     kickoff?: string
   }
+  image?: string
+  imageAlt?: string
   overview: {
     problem: string
     solution: string
@@ -54,6 +56,8 @@ export const projects: Project[] = [
     repoLink: "https://github.com/KennyKeni/CS-2340-Team-6-Project",
     liveSite: "https://cs2340team6.pythonanywhere.com/",
     videoEmbed: "",
+    image: "/jobapp.png",
+    imageAlt: "Screenshot of the Job App platform showing recruiter pipeline columns and applicant cards.",
     userStories: [
       "Job seekers can create detailed profiles with skills, experience, and links.",
       "Job seekers can submit tailored, one-click applications and track their status across stages.",

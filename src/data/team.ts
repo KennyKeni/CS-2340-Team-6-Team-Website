@@ -14,7 +14,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: "Sayan Dahiya",
-    role: "Full-Stack Developer · Computer Science · 3rd Year",
+    role: "Full-Stack Developer · Computer Science · 2nd Year",
     email: "sdahiya31@gatech.edu",
     focus: "API design, data modeling, and end-to-end feature delivery for recruiter workflows.",
   },

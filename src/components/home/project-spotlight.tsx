@@ -44,6 +44,16 @@ export function ProjectSpotlight({ project }: ProjectSpotlightProps) {
             </p>
           </div>
 
+          {project.image && (
+            <figure className="overflow-hidden rounded-2xl border border-border/80 bg-background/80">
+              <img
+                src={project.image}
+                alt={project.imageAlt ?? `${project.title} interface preview`}
+                className="h-auto w-full object-cover"
+              />
+            </figure>
+          )}
+
           <div className="grid gap-3 sm:grid-cols-2">
             <div className="rounded-2xl border border-border/80 bg-background/80 p-4">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">

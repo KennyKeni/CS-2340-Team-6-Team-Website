@@ -48,7 +48,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-4 sm:px-10">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-start gap-4 px-6 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-10">
         <Link to="/" className="flex flex-col text-left">
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
             {siteInfo.course} · {siteInfo.semester}
@@ -57,7 +57,7 @@ export function SiteHeader() {
             {siteInfo.teamName} · {siteInfo.university}
           </span>
         </Link>
-        <nav className="flex items-center gap-7 text-sm font-medium">
+        <nav className="flex w-full flex-wrap items-center gap-4 text-sm font-medium sm:w-auto sm:flex-nowrap sm:gap-7">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -123,7 +123,7 @@ export function SiteHeader() {
         {featuredProject && (
           <Link
             to={projectHref}
-            className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20"
+            className="inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20 sm:w-auto"
           >
             View featured project
             <ArrowUpRight className="size-4" />
