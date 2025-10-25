@@ -1,0 +1,135 @@
+import { ArrowUpRight, ChevronDown } from "lucide-react"
+import {
+  Link,
+  NavLink,
+  useLocation,
+} from "react-router-dom"
+import { useEffect, useRef, useState } from "react"
+
+import { projects } from "../../data/projects"
+import { siteInfo } from "../../data/site"
+
+export function SiteHeader() {
+  const location = useLocation()
+  const featuredProject = projects[0]
+  const projectHref = featuredProject ? `/projects/${featuredProject.slug}` : "/"
+  const [projectMenuOpen, setProjectMenuOpen] = useState(false)
+  const projectMenuRef = useRef<HTMLDivElement>(null)
+
+  const isProjectRouteActive = location.pathname.startsWith("/projects")
+
+  useEffect(() => {
+    setProjectMenuOpen(false)
+  }, [location.pathname])
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        projectMenuRef.current &&
+        !projectMenuRef.current.contains(event.target as Node)
+      ) {
+        setProjectMenuOpen(false)
+      }
+    }
+
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setProjectMenuOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener("keydown", handleEscape)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+      document.removeEventListener("keydown", handleEscape)
+    }
+  }, [])
+
+  return (
+    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-4 sm:px-10">
+        <Link to="/" className="flex flex-col text-left">
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+            {siteInfo.course} · {siteInfo.semester}
+          </span>
+          <span className="text-sm font-medium text-foreground">
+            {siteInfo.teamName} · {siteInfo.university}
+          </span>
+        </Link>
+        <nav className="flex items-center gap-7 text-sm font-medium">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              [
+                "transition-colors",
+                isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+              ].join(" ")
+            }
+          >
+            Home
+          </NavLink>
+          {projects.length > 0 && (
+            <div className="relative" ref={projectMenuRef}>
+              <button
+                type="button"
+                onClick={() => setProjectMenuOpen((open) => !open)}
+                className={[
+                  "inline-flex items-center gap-1 rounded-full px-3 py-1 transition-colors",
+                  isProjectRouteActive || projectMenuOpen
+                    ? "bg-primary/10 text-foreground"
+                    : "text-muted-foreground hover:text-foreground",
+                ].join(" ")}
+                aria-haspopup="menu"
+                aria-expanded={projectMenuOpen}
+              >
+                Projects
+                <ChevronDown
+                  className={[
+                    "size-4 transition-transform",
+                    projectMenuOpen ? "rotate-180" : "",
+                  ].join(" ")}
+                />
+              </button>
+              {projectMenuOpen && (
+                <div className="absolute right-0 top-full mt-3 w-64 rounded-2xl border border-border/60 bg-card p-2 shadow-lg">
+                  <div className="flex flex-col divide-y divide-border/60">
+                    {projects.map((project) => (
+                      <Link
+                        key={project.slug}
+                        to={`/projects/${project.slug}`}
+                        className="group flex flex-col gap-1 rounded-xl px-3 py-3 text-left transition hover:bg-muted/60"
+                      >
+                        <span className="text-sm font-semibold text-foreground group-hover:text-primary">
+                          {project.title}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          {project.tagline}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+          <a
+            href={`mailto:${siteInfo.contactEmail}`}
+            className="hidden text-muted-foreground transition hover:text-foreground sm:inline-flex"
+          >
+            Contact
+          </a>
+        </nav>
+        {featuredProject && (
+          <Link
+            to={projectHref}
+            className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20"
+          >
+            View featured project
+            <ArrowUpRight className="size-4" />
+          </Link>
+        )}
+      </div>
+    </header>
+  )
+}
