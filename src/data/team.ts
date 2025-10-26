@@ -36,7 +36,10 @@ export const teamMembers: TeamMember[] = [
     name: "Shashwat Dwivedi",
     role: "Full-Stack Developer · Computer Engineering · 3rd Year",
     email: "sdwivedi43@gatech.edu",
-    focus: "Feature development across Django views, template logic, and shared component patterns.",
+    focus: "Applicant UX, job map integrations, and shared profile workflows.",
+    bio: "I’m Shashwat Dwivedi, a third-year Computer Engineering major at Georgia Tech. I’m passionate about building systems that connect hardware and software. I'm especially passionate when it comes to automation, AI, and real-time applications. I’ve worked on projects ranging from robotics and sensor-based systems to computer vision and sports analytics, and I enjoy finding ways to make technical work both efficient and intuitive for users.",
+    contributions:
+      "For our team project this sprint, I focused on the applicant side of the platform. I built the applicant profile creation and editing system, the interactive job map that uses the Google Maps API to show nearby postings based on commute preferences, and the “My Applications” dashboard that tracks job application progress. I also helped connect the profile and job map features so user commute settings update automatically across both pages.",
   },
   {
     name: "Deven Nahata",

@@ -11,12 +11,10 @@ export function TeamPage() {
             Team
           </span>
           <h1 className="mt-4 max-w-3xl text-4xl font-semibold text-foreground sm:text-5xl">
-            Meet the builders behind every sprint deliverable
+            Ms. Koladiya Team 6
           </h1>
           <p className="mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Learn who to reach out to for each part of the project, and capture
-            everyone’s core contributions in one place. Update the details in{" "}
-            <code>src/data/team.ts</code> as the project evolves.
+            Learn more about each individual member of the team.
           </p>
         </div>
       </section>
