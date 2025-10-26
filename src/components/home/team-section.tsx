@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react"
+import { Link } from "react-router-dom"
 
 import type { TeamMember } from "../../data/team"
 
@@ -43,7 +44,9 @@ export function TeamSection({ members }: TeamSectionProps) {
                   </h3>
                   <p className="text-sm text-muted-foreground">{member.role}</p>
                 </div>
-                <p className="text-sm text-muted-foreground">{member.focus}</p>
+                <p className="text-sm text-muted-foreground">
+                  {member.focus || member.contributions || "Contributions coming soon."}
+                </p>
               </div>
               <a
                 className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary transition hover:text-primary/80"
@@ -54,6 +57,15 @@ export function TeamSection({ members }: TeamSectionProps) {
               </a>
             </article>
           ))}
+        </div>
+        <div className="mt-12 flex justify-center">
+          <Link
+            to="/team"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
+          >
+            Meet the full team
+            <ArrowUpRight className="size-4" />
+          </Link>
         </div>
       </div>
     </section>

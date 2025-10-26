@@ -3,6 +3,8 @@ export type TeamMember = {
   role: string
   email: string
   focus: string
+  bio?: string
+  contributions?: string
 }
 
 export const teamMembers: TeamMember[] = [
@@ -32,8 +34,11 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: "Deven Nahata",
-    role: "Scrum Master · Computer Science · 2nd Year",
+    role: "Scrum Master · Computer Engineering · 2nd Year",
     email: "dnahata7@gatech.edu",
-    focus: "Ceremony facilitation, risk tracking, and ensuring the team removes blockers quickly.",
+    focus: "Scrum ceremonies and blocker removal, plus recruiter emailing and skill-based job matches.",
+    bio: "My name is Deven Nahata, I am a 2nd year computer engineering major from Pittsburgh, PA. I previously have experience working in cybersecurity, working to connect US vendors with companies in the Middle East. I also have research experience, working at a lab for wearable devices at CMU, and at a lab at the University of Toronto for autonomous vehicles.",
+    contributions:
+      "In this sprint, I implemented the email feature for recruiters, where they can email the applicants directly from the site. I also implemented the skills feature, where jobs can be recommended to you based on the skills in your profile. I also worked on the retrospective. In Sprint 1, I worked on the job search feature.",
   },
 ]

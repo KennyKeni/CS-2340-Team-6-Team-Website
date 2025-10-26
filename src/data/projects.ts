@@ -11,6 +11,8 @@ export type Project = {
   videoEmbed?: string
   status?: string
   userStories?: string[]
+  systemDescription?: string | string[]
+  processDescription?: string
   currentSprint?: {
     number: string
     focus: string
@@ -118,6 +120,13 @@ export const projects: Project[] = [
       "Prototype the map visualization using campus data to validate UX flows.",
       "Prepare test plan and instrumentation for notifying users about new matches.",
     ],
+    systemDescription: [
+      "The Job App is created using Django as a monolith full-stack framework that leans on Django's Model-View-Controller pattern. Our views (controllers) expose API endpoints and server-rendered pages, while AJAX powers client-side interactions where needed. The applicant experience features a profile page with toggleable settings spanning User Story 1 (profile details with headline, skills, education, experience, and links), User Story 5 (privacy controls), and User Story 9 (preferred commute radius). The job search page implements User Story 2 for filtered job discovery and User Story 3 for one-click applications. A recommendations page satisfies User Story 6 by ranking jobs through skill matches.",
+      "The maps page fulfills User Stories 7, 8, and 9 with geospatial search, Euclidean distance filters, and saved preferences. Recruiters work within a dedicated dashboard addressing User Story 10 for posting and editing roles, plus a candidate search page that covers User Story 11 (skill/location/project filters), User Story 13 (in-platform messaging), User Story 14 (email outreach), and User Story 15 (saved searches with notifications). A shared notification system underpins User Stories 13 and 15 by surfacing new messages and saved-search matches.",
+      "We also extend Django's admin site to satisfy administrative user stories. Administrators manage users and roles for User Story 19 by banning accounts, deleting users, and toggling roles between applicant and recruiter as needed, while the same panel allows them to remove job postings directly from the system.",
+    ],
+    processDescription:
+      "We followed Scrum with async standups in Teams every day to keep progress transparent and unblock issues quickly. The Product Owner tracked deadlines, handled submissions, and partnered with our TA whenever user story requirements needed clarification. During sprint planning the Scrum Master authored detailed tickets for each user story so the whole team shared the same expectations. We used GitHub for version control to coordinate work on a shared main branch with clear history and reviews, while each teammate developed on a dedicated branch and opened pull requests to merge changes safely without disrupting others. Our backlog lived on Trello with columns for backlog, in progress, in review, and completed so we could track every story and its owner. Teams was our primary communication hub for meetings, demos, shared documents, and sprint deadlines.",
   },
   {
     slug: "gt-tour-guide",

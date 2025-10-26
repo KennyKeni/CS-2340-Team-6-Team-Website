@@ -105,6 +105,40 @@ export function ProjectPage() {
         </div>
       </section>
 
+      {project.systemDescription && (
+        <section className="mx-auto w-full max-w-5xl px-6 sm:px-10">
+          <div className="rounded-3xl border border-border/70 bg-card p-8 shadow-sm">
+            <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              System Description
+            </h2>
+            {Array.isArray(project.systemDescription) ? (
+              project.systemDescription.map((paragraph) => (
+                <p key={paragraph} className="mt-4 text-sm text-muted-foreground">
+                  {paragraph}
+                </p>
+              ))
+            ) : (
+              <p className="mt-4 text-sm text-muted-foreground">
+                {project.systemDescription}
+              </p>
+            )}
+          </div>
+        </section>
+      )}
+
+      {project.processDescription && (
+        <section className="mx-auto w-full max-w-5xl px-6 sm:px-10">
+          <div className="rounded-3xl border border-border/70 bg-card p-8 shadow-sm">
+            <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              Process Description
+            </h2>
+            <p className="mt-4 text-sm text-muted-foreground">
+              {project.processDescription}
+            </p>
+          </div>
+        </section>
+      )}
+
       {(project.currentSprint || project.upcomingSprint) && (
         <section className="mx-auto w-full max-w-5xl px-6 sm:px-10">
           <div className="grid gap-6 lg:grid-cols-2">

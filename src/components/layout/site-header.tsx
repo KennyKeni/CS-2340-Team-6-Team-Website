@@ -82,6 +82,17 @@ export function SiteHeader() {
           >
             Home
           </NavLink>
+          <NavLink
+            to="/team"
+            className={({ isActive }) =>
+              [
+                "transition-colors",
+                isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+              ].join(" ")
+            }
+          >
+            Team
+          </NavLink>
           {projects.length > 0 && (
             <div className="relative" ref={projectMenuRef}>
               <button
@@ -126,12 +137,6 @@ export function SiteHeader() {
               )}
             </div>
           )}
-          <a
-            href={`mailto:${siteInfo.contactEmail}`}
-            className="hidden text-muted-foreground transition hover:text-foreground sm:inline-flex"
-          >
-            Contact
-          </a>
         </nav>
         {featuredProject && isHeaderAtTop && (
           <Link
