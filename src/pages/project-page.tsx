@@ -27,7 +27,7 @@ export function ProjectPage() {
           <div className="space-y-6">
             <div className="inline-flex items-center gap-3">
               <span className="rounded-full border border-border bg-background/40 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-                Case Study
+                Exam 3 / Final Voluntary Optional Activity
               </span>
               <span className="rounded-full border border-border bg-background/40 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
                 {project.slug}

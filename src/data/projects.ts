@@ -144,7 +144,7 @@ export const projects: Project[] = [
     techStack: ["Django", "SQLite", "Google Maps API"],
     repoLink: "#",
     liveSite: "",
-    status: "Ideation · Backlog grooming",
+    status: "Sprint 1",
     overview: {
       problem:
         "Visitors rely on generic campus tours that overlook specialized labs, student-led initiatives, and the context prospects need to picture life at Georgia Tech.",

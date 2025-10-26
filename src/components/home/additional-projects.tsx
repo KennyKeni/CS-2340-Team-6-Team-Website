@@ -37,7 +37,7 @@ export function AdditionalProjects({ projects }: AdditionalProjectsProps) {
           >
             <div className="space-y-4">
               <div className="flex flex-wrap gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                <span>Case Study</span>
+                <span>Exam 3 / Final Voluntary Optional Activity</span>
                 {project.status && <span>{project.status}</span>}
               </div>
               <div>
