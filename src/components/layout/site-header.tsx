@@ -14,8 +14,9 @@ export function SiteHeader() {
   const featuredProject = projects[0]
   const projectHref = featuredProject ? `/projects/${featuredProject.slug}` : "/"
   const [projectMenuOpen, setProjectMenuOpen] = useState(false)
-  const [isHeaderAtTop, setIsHeaderAtTop] = useState(true)
   const projectMenuRef = useRef<HTMLDivElement>(null)
+  const [isHeaderAtTop, setIsHeaderAtTop] = useState(true)
+  const [isDesktop, setIsDesktop] = useState(false)
 
   const isProjectRouteActive = location.pathname.startsWith("/projects")
 
@@ -48,13 +49,22 @@ export function SiteHeader() {
   }, [])
 
   useEffect(() => {
+    function updateIsDesktop() {
+      setIsDesktop(window.matchMedia("(min-width: 768px)").matches)
+    }
+
     function handleScroll() {
       setIsHeaderAtTop(window.scrollY < 10)
     }
 
+    updateIsDesktop()
     handleScroll()
+
+    window.addEventListener("resize", updateIsDesktop)
     window.addEventListener("scroll", handleScroll, { passive: true })
+
     return () => {
+      window.removeEventListener("resize", updateIsDesktop)
       window.removeEventListener("scroll", handleScroll)
     }
   }, [])
@@ -138,7 +148,7 @@ export function SiteHeader() {
             </div>
           )}
         </nav>
-        {featuredProject && isHeaderAtTop && (
+        {featuredProject && (isDesktop || isHeaderAtTop) && (
           <Link
             to={projectHref}
             className="inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20 sm:w-auto"
