@@ -30,7 +30,10 @@ export const teamMembers: TeamMember[] = [
     name: "Jahir Chowdhury",
     role: "Product Owner · Computer Science · 3rd Year",
     email: "jchowdhury31@gatech.edu",
-    focus: "Backlog prioritization, stakeholder alignment, and defining acceptance criteria each sprint.",
+    focus: "Product direction, messaging features, and notification workflows.",
+    bio: "My name is Jahir Chowdhury, and I'm a third-year Computer Science major from Atlanta, GA. I love building software that makes the user experience as best as it can be, especially since I used to do graphic designing as an independent contractor for over five years. When it comes to UI and functionality, I love pouring tons of time and effort into ensuring it's the best possible work it can be. I have done QA work in the past for an internship, and I'm currently building multiple projects both personal and with a group for product release.",
+    contributions:
+      "Regarding the team, I work as both a full-stack developer and a product owner. I've worked on the user profile settings so that any registered user can update their information at any given time. I have also worked on the integrated messaging system on our website so that candidates and recruiters can easily exchange messages and directly select which job posting is relevant to the conversation. Moreover, I also worked on the notification system and saved search feature, allowing both candidates and recruiters to receive notifications whenever a new message is received and unread, along with allowing recruiters to save their search filters and receive real-time notifications whenever candidates qualify for said search. Besides implementing those features, I have also stress tested each user story in order to find any possible issue(s) and address them as quick as I can. I help set deadlines and assign members of the team their respective work in order to ensure there's no gap in the bridge of communication.",
   },
   {
     name: "Shashwat Dwivedi",
