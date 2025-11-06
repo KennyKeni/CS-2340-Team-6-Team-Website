@@ -57,7 +57,7 @@ export const projects: Project[] = [
     techStack: ["Django", "SQLite", "Google Maps API"],
     repoLink: "https://github.com/KennyKeni/CS-2340-Team-6-Project",
     liveSite: "https://cs2340team6.pythonanywhere.com/",
-    videoEmbed: "",
+    videoEmbed: '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/b8mQTkXq-3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="aspect-video"></iframe>',
     image: "/jobapp.png",
     imageAlt: "Screenshot of the Job App platform showing recruiter pipeline columns and applicant cards.",
     userStories: [
@@ -141,7 +141,7 @@ export const projects: Project[] = [
       "Prototyped an itinerary builder that adapts to tour duration and accessibility needs.",
       "Planning integrations with campus events feed and facilities availability.",
     ],
-    techStack: ["Django", "SQLite", "Google Maps API"],
+    techStack: ["Django", "SQLite", "Google Maps API", "PydanticAI", "OpenAI API"],
     repoLink: "#",
     liveSite: "",
     status: "Sprint 1",

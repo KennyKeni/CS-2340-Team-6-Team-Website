@@ -1,4 +1,3 @@
-import { AdditionalProjects } from "../components/home/additional-projects"
 import { HomeHero } from "../components/home/home-hero"
 import { ProjectSpotlight } from "../components/home/project-spotlight"
 import { TeamSection } from "../components/home/team-section"
@@ -6,10 +5,10 @@ import { projects } from "../data/projects"
 import { teamMembers } from "../data/team"
 
 export function HomePage() {
-  const featuredProject = projects[0]
-  const additionalProjects = projects.slice(1)
+  const mainProject = projects[0]
+  const gtTourGuide = projects[1]
 
-  if (!featuredProject) {
+  if (!mainProject) {
     return (
       <div className="mx-auto flex w-full max-w-4xl flex-col gap-10 px-6 py-20 text-center sm:px-10">
         <h1 className="text-4xl font-semibold text-foreground sm:text-5xl">
@@ -25,9 +24,16 @@ export function HomePage() {
 
   return (
     <>
-      <HomeHero featuredProject={featuredProject} />
-      <ProjectSpotlight project={featuredProject} />
-      <AdditionalProjects projects={additionalProjects} />
+      <HomeHero featuredProject={mainProject} />
+      <ProjectSpotlight project={mainProject} />
+      {gtTourGuide && (
+        <>
+          <div className="mx-auto w-full max-w-6xl px-6 sm:px-10">
+            <div className="border-t border-border/60" />
+          </div>
+          <ProjectSpotlight project={gtTourGuide} />
+        </>
+      )}
       <TeamSection members={teamMembers} />
     </>
   )

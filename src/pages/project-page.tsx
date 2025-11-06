@@ -76,6 +76,20 @@ export function ProjectPage() {
         </div>
       </section>
 
+      {project.videoEmbed && (
+        <section className="mx-auto w-full max-w-5xl px-6 sm:px-10">
+          <div className="rounded-3xl border border-primary/40 bg-primary/10 p-6 shadow-sm backdrop-blur">
+            <h2 className="text-base font-semibold text-foreground">
+              Demo Walkthrough
+            </h2>
+            <div
+              className="mt-4 overflow-hidden rounded-2xl border border-border/60"
+              dangerouslySetInnerHTML={{ __html: project.videoEmbed }}
+            />
+          </div>
+        </section>
+      )}
+
       <section className="mx-auto w-full max-w-5xl px-6 sm:px-10">
         <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-3xl border border-border/60 bg-card p-6 shadow-sm">
@@ -213,27 +227,6 @@ export function ProjectPage() {
           </ul>
         </article>
         <aside className="space-y-6">
-          <div className="rounded-3xl border border-primary/40 bg-primary/10 p-6 shadow-sm backdrop-blur">
-            <h3 className="text-base font-semibold text-foreground">
-              Demo Walkthrough
-            </h3>
-            {project.videoEmbed ? (
-              <div
-                className="mt-4 overflow-hidden rounded-2xl border border-border/60"
-                dangerouslySetInnerHTML={{ __html: project.videoEmbed }}
-              />
-            ) : (
-              <div className="mt-4 flex aspect-video items-center justify-center rounded-2xl border border-dashed border-primary/40 bg-background/70 text-sm text-muted-foreground">
-                <div className="flex flex-col items-center gap-3 px-6 text-center">
-                  <Play className="size-10 text-primary" />
-                  <p>
-                    Drop your embed iframe here once the demo is ready to share.
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
-
           <div className="rounded-3xl border border-border/80 bg-card p-6 shadow-sm">
             <h3 className="text-base font-semibold text-foreground">
               Next Steps
