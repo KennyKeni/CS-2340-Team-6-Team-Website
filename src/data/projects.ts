@@ -153,6 +153,8 @@ export const projects: Project[] = [
       impact:
         "We expect to improve visitor engagement, guide families to relevant programs faster, and give admissions richer analytics on tour interests.",
     },
+    processDescription:
+      "We followed Scrum with async standups in Teams every day to keep progress transparent and unblock issues quickly. The Product Owner tracked deadlines, handled submissions, and partnered with our TA whenever user story requirements needed clarification. During sprint planning the Scrum Master authored detailed tickets for each user story so the whole team shared the same expectations. We used GitHub for version control to coordinate work on a shared main branch with clear history and reviews, while each teammate developed on a dedicated branch and opened pull requests to merge changes safely without disrupting others. Our backlog lived on Trello with columns for backlog, in progress, in review, and completed so we could track every story and its owner. Teams was our primary communication hub for meetings, demos, shared documents, and sprint deadlines.",
     milestones: [
       {
         title: "Week 2 · Discovery",
