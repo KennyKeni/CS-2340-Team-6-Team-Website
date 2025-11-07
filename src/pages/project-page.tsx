@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowUpRight, Play } from "lucide-react"
+import { ArrowLeft, ArrowUpRight } from "lucide-react"
 import { Navigate, useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 
