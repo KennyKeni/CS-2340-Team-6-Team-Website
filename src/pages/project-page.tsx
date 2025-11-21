@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
 import { Navigate, useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
+import Markdown from "react-markdown"
 
 import { getProjectBySlug } from "../data/projects"
 
@@ -126,15 +127,15 @@ export function ProjectPage() {
               System Description
             </h2>
             {Array.isArray(project.systemDescription) ? (
-              project.systemDescription.map((paragraph) => (
-                <p key={paragraph} className="mt-4 text-sm text-muted-foreground">
-                  {paragraph}
-                </p>
+              project.systemDescription.map((paragraph, index) => (
+                <div key={index} className="mt-4 text-sm text-muted-foreground prose prose-sm prose-invert max-w-none">
+                  <Markdown>{paragraph}</Markdown>
+                </div>
               ))
             ) : (
-              <p className="mt-4 text-sm text-muted-foreground">
-                {project.systemDescription}
-              </p>
+              <div className="mt-4 text-sm text-muted-foreground prose prose-sm prose-invert max-w-none">
+                <Markdown>{project.systemDescription}</Markdown>
+              </div>
             )}
           </div>
         </section>
@@ -146,9 +147,9 @@ export function ProjectPage() {
             <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
               Process Description
             </h2>
-            <p className="mt-4 text-sm text-muted-foreground">
-              {project.processDescription}
-            </p>
+            <div className="mt-4 text-sm text-muted-foreground prose prose-sm prose-invert max-w-none">
+              <Markdown>{project.processDescription}</Markdown>
+            </div>
           </div>
         </section>
       )}

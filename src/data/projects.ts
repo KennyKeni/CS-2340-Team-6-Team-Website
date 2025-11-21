@@ -48,7 +48,7 @@ export const projects: Project[] = [
       "Our CS 2340 course project is a full-stack Django job-matching web app that empowers job seekers to showcase their stories while giving recruiters the tools to discover, evaluate, and stay in sync with rising talent. It is built with Django, SQLite, and the Google Maps API, and we run the team under an agile workflow.",
     summary:
       "Across Sprints 1 and 2 we implemented authenticated profiles, one-click applications with tailored notes, and a recruiter Kanban pipeline that keeps every candidate moving through the stages while staying grounded in a Django + SQLite backend powered by the Google Maps API. Sprint 3 will extend that foundation with map intelligence for job postings and applicant clusters, recruiter recommendations, and exportable analytics so our stakeholders can make data-driven decisions.",
-    status: "Sprint 2 complete · Sprint 3 planning in progress",
+    status: "Sprint 3 complete as of 11/21",
     highlights: [
       "Delivered an end-to-end applicant pipeline so recruiters can progress candidates from Applied → Offer reliably.",
       "Implemented one-click applications with tailored notes and automatic status tracking for job seekers.",
@@ -69,25 +69,15 @@ export const projects: Project[] = [
       "Administrators can export CSV snapshots for sprint reporting.",
     ],
     currentSprint: {
-      number: "Sprint 2",
-      focus: "Application tracking & recruiter pipeline management",
-      dateRange: "Oct 12 – Oct 26, 2025",
-      completedStories: [
-        "Applicants progress through Applied → Review → Interview → Offer → Closed states.",
-        "Recruiters can drag-and-drop applicants between pipeline columns for each posting.",
-        "Job seekers can add tailored notes to each application submission.",
-        "Team website updated with sprint review recap and demo video placeholder.",
-      ],
-    },
-    upcomingSprint: {
       number: "Sprint 3",
       focus: "Map insights & data exports",
-      kickoff: "Oct 27, 2025",
-      priorities: [
-        "Enhance the recruiter Kanban board with filters and aggregate metrics.",
-        "Surface candidate recommendations for job postings using saved criteria.",
-        "Pin job posting office locations and applicant clusters on an interactive map.",
-        "Enable administrators to export CSV reports for stakeholder analysis.",
+      dateRange: "Oct 27 – Nov 21, 2025",
+      completedStories: [
+        "User Story 12: Organized applicants in a Kanban board pipeline so recruiters can easily manage hiring stages.",
+        "User Story 16: Implemented candidate recommendations for job postings so recruiters find qualified applicants faster.",
+        "User Story 17: Enabled recruiters to pin job posting office locations on a map so candidates know exactly where the job is based.",
+        "User Story 18: Visualized clusters of applicants by location on a map so recruiters understand where most candidates are coming from.",
+        "User Story 21: Built CSV export functionality for administrators so stakeholders can analyze usage for reporting purposes.",
       ],
     },
     overview: {
@@ -116,17 +106,20 @@ export const projects: Project[] = [
       },
     ],
     nextSteps: [
-      "Align Sprint 3 backlog with mentor TA expectations during planning review.",
-      "Prototype the map visualization using campus data to validate UX flows.",
-      "Prepare test plan and instrumentation for notifying users about new matches.",
+      "Complete final project documentation and sprint retrospective.",
+      "Prepare final demo presentation showcasing all three sprints.",
+      "Archive project repository and deployment for course submission.",
     ],
     systemDescription: [
       "The Job App is created using Django as a monolith full-stack framework that leans on Django's Model-View-Controller pattern. Our views (controllers) expose API endpoints and server-rendered pages, while AJAX powers client-side interactions where needed. The applicant experience features a profile page with toggleable settings spanning User Story 1 (profile details with headline, skills, education, experience, and links), User Story 5 (privacy controls), and User Story 9 (preferred commute radius). The job search page implements User Story 2 for filtered job discovery and User Story 3 for one-click applications. A recommendations page satisfies User Story 6 by ranking jobs through skill matches.",
       "The maps page fulfills User Stories 7, 8, and 9 with geospatial search, Euclidean distance filters, and saved preferences. Recruiters work within a dedicated dashboard addressing User Story 10 for posting and editing roles, plus a candidate search page that covers User Story 11 (skill/location/project filters), User Story 13 (in-platform messaging), User Story 14 (email outreach), and User Story 15 (saved searches with notifications). A shared notification system underpins User Stories 13 and 15 by surfacing new messages and saved-search matches.",
       "We also extend Django's admin site to satisfy administrative user stories. Administrators manage users and roles for User Story 19 by banning accounts, deleting users, and toggling roles between applicant and recruiter as needed, while the same panel allows them to remove job postings directly from the system.",
+      "![Job Search Sequence Diagram](/jobapp/JobSearchSD.png)\n\nThis sequence diagram shows how a job seeker searches for jobs using multiple filters (title, skills, location, salary range, remote/on-site preference, and visa sponsorship). When the user submits the search form, the search_jobs Django view reads the query parameters and applies each filter in turn to the JobPosting queryset, narrowing the results in the database. For authenticated applicants, the system then retrieves the jobs they've already applied to and renders the filtered results with \"applied\" status indicators.",
+      "![Candidate Search Sequence Diagram](/jobapp/JobAppSD3.png)\n\nThis sequence diagram illustrates the recruiter's candidate search workflow. A recruiter navigates to the candidate search page through their browser, where they can apply and refine multiple filters including username, free-text queries, required skills, project links, and location preferences. The CandidateSearchView verifies recruiter permissions, constructs a Django queryset joining account and privacy data, and incrementally filters visible candidates based on the provided criteria. After deduplicating results, the view prepares the template context and returns an HTML response displaying the filtered candidate list to the recruiter's browser.",
+      "![Class Diagram](/jobapp/ClassDiagram.png)\n\nThe platform's class structure centers on a dual-user architecture where both Applicants and Recruiters inherit from a base Account model. Applicants construct comprehensive profiles encompassing work experience, education, and skill sets, with granular privacy controls governing information visibility. Job applications progress through a structured workflow spanning applied, review, interview, offer, and closed stages. The system implements bidirectional matching intelligence: get_job_recommendations() surfaces relevant opportunities for candidates by analyzing their skill profiles, while get_candidate_recommendations() employs weighted skill scoring to connect recruiters with qualified applicants. Communication mechanisms include a notification system and direct messaging capabilities, complemented by saved search functionality for recruiters and privacy settings that give candidates control over their profile visibility.",
     ],
     processDescription:
-      "We followed Scrum with async standups in Teams every day to keep progress transparent and unblock issues quickly. The Product Owner tracked deadlines, handled submissions, and partnered with our TA whenever user story requirements needed clarification. During sprint planning the Scrum Master authored detailed tickets for each user story so the whole team shared the same expectations. We used GitHub for version control to coordinate work on a shared main branch with clear history and reviews, while each teammate developed on a dedicated branch and opened pull requests to merge changes safely without disrupting others. Our backlog lived on Trello with columns for backlog, in progress, in review, and completed so we could track every story and its owner. Teams was our primary communication hub for meetings, demos, shared documents, and sprint deadlines.",
+      "We followed Scrum with async standups as needed to keep everyone in the loop and quickly address any roadblocks that came up. The Product Owner kept tabs on deadlines, submitted deliverables, and reached out to our TA whenever we needed clarification on what a user story actually required. During sprint planning, the Scrum Master broke down each user story into detailed tickets so everyone knew exactly what we were building. This way, it was clear who owned which story and what the expectations were for each user story.\n\n\n\nWe used GitHub for version control to coordinate work on a shared main branch with clear history and reviews, keeping everything organized while each person worked on their own branch. When someone finished a feature, they'd open a pull request so the rest of us could review it before merging. This kept us from accidentally breaking each other's code and ensured changes were merged safely without disrupting others. We managed our backlog on Trello using columns for backlog, in progress, in review, and completed, which made it easy to see where every story stood and who was working on what. Teams served as the primary mode of communication for meetings, demos, document sharing, and sprint deadline tracking. Overall, this sprint went pretty smoothly. We met our internal deadlines without major issues, and the team stayed on the same page throughout.",
   },
   {
     slug: "gt-tour-guide",
@@ -154,7 +147,7 @@ export const projects: Project[] = [
         "We expect to improve visitor engagement, guide families to relevant programs faster, and give admissions richer analytics on tour interests.",
     },
     processDescription:
-      "We followed Scrum with async standups in Teams every day to keep progress transparent and unblock issues quickly. The Product Owner tracked deadlines, handled submissions, and partnered with our TA whenever user story requirements needed clarification. During sprint planning the Scrum Master authored detailed tickets for each user story so the whole team shared the same expectations. We used GitHub for version control to coordinate work on a shared main branch with clear history and reviews, while each teammate developed on a dedicated branch and opened pull requests to merge changes safely without disrupting others. Our backlog lived on Trello with columns for backlog, in progress, in review, and completed so we could track every story and its owner. Teams was our primary communication hub for meetings, demos, shared documents, and sprint deadlines.",
+      "We followed Scrum with async standups as needed to keep everyone in the loop and quickly address any roadblocks that came up. Our Product Owner kept tabs on deadlines, submitted deliverables, and reached out to our TA whenever we needed clarification on what a user story actually required. During sprint planning, the Scrum Master broke down each user story into detailed tickets so everyone knew exactly what we were building. This way, it was clear who owned which story and what the expectations were for each user story.\n\n\n\nWe used GitHub for version control to coordinate work on a shared main branch with clear history and reviews, keeping everything organized while each person worked on their own branch. When someone finished a feature, they'd open a pull request so the rest of us could review it before merging. This kept us from accidentally breaking each other's code and ensured changes were merged safely without disrupting others. We managed our backlog on Trello using columns for backlog, in progress, in review, and completed, which made it easy to see where every story stood and who was working on what. Teams served as the primary mode of communication for meetings, demos, document sharing, and sprint deadline tracking. Overall, this sprint went pretty smoothly. We met our internal deadlines without major issues, and the team stayed on the same page throughout.",
     milestones: [
       {
         title: "Week 2 · Discovery",
