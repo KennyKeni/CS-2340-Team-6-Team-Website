@@ -138,6 +138,9 @@ export const projects: Project[] = [
     repoLink: "#",
     liveSite: "",
     status: "Sprint 1",
+    systemDescription: [
+      "![LLM Tour Creation Sequence Diagram](/tourapp/TourAppSD.png)\n\nThe LLM Tour Creation feature enables users to request custom campus tours through a conversational chat interface. When a user submits a tour request, the Pydantic AI agent queries the OpenRouter LLM with context about all available campus locations. The LLM then suggests a themed tour with specific stops tailored to the user's interests. Once the user confirms they want the tour saved, the LLM invokes a create_tour tool that persists the Tour and TourStop records to the database. The system returns the new tour ID to the frontend, allowing the user to immediately view or navigate their custom tour.",
+    ],
     overview: {
       problem:
         "Visitors rely on generic campus tours that overlook specialized labs, student-led initiatives, and the context prospects need to picture life at Georgia Tech.",
