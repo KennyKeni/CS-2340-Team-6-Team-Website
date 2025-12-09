@@ -137,9 +137,11 @@ export const projects: Project[] = [
     techStack: ["Django", "SQLite", "Google Maps API", "PydanticAI", "OpenAI API"],
     repoLink: "#",
     liveSite: "",
+    videoEmbed: '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/lZMsp-xAqs4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="aspect-video"></iframe>',
     status: "Sprint 1",
     systemDescription: [
       "![LLM Tour Creation Sequence Diagram](/tourapp/TourAppSD.png)\n\nThe LLM Tour Creation feature enables users to request custom campus tours through a conversational chat interface. When a user submits a tour request, the Pydantic AI agent queries the OpenRouter LLM with context about all available campus locations. The LLM then suggests a themed tour with specific stops tailored to the user's interests. Once the user confirms they want the tour saved, the LLM invokes a create_tour tool that persists the Tour and TourStop records to the database. The system returns the new tour ID to the frontend, allowing the user to immediately view or navigate their custom tour.",
+      "![Domain Model Diagram](/tourapp/dmd.png)\n\nThe domain model centers on Users who maintain UserProfiles with privacy settings and affiliation details. Users can create and own Tours composed of ordered TourStops, each referencing a Location with geographic coordinates, descriptions, and historical information. The platform supports social features through Friendships (with request/accept status) and SharedTours for collaborative planning. Users can bookmark both individual Locations and complete Tours, while Ratings allow users to review Locations with comments that staff users can moderate and respond to.",
     ],
     overview: {
       problem:
